@@ -1,0 +1,8 @@
+# weredifferent.wearelacuna.com
+# The landing page. A separate host from www.wearelacuna.com, so it needs
+# its own robots file and sitemap — a subdomain does not inherit either.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://weredifferent.wearelacuna.com/sitemap.xml

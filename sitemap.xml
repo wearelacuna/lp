@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The landing page subdomain. Both URLs are on weredifferent.* so they
+  match the canonicals on those pages exactly — a sitemap listing a host
+  you canonicalise away from is ignored.
+
+  This is deliberately a separate sitemap from the one on
+  www.wearelacuna.com. A sitemap may only list URLs on its own host.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://weredifferent.wearelacuna.com/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+
+<!--
+  privacy.html is deliberately absent. It carries <meta robots="noindex">,
+  because it largely duplicates the policy on www.wearelacuna.com and two
+  near-identical pages competing helps neither. Listing a noindex page in
+  a sitemap is a direct contradiction — the sitemap says index this, the
+  page says do not — and Search Console reports it as an error.
+-->
