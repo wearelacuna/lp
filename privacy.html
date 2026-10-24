@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Lacuna</title>
+<meta name="description" content="How Lacuna collects, uses, shares and protects personal data, and the rights you have over it.">
+<meta name="robots" content="noindex, follow">
+<!-- The c alone, drawn inline. Matches the landing page exactly. -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M25.2 22.02A10.5 10.5 0 1 1 25.2 9.98' fill='none' stroke='%231D865A' stroke-width='5' stroke-linecap='butt'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==============================================================
+   Lacuna identity v1 (2026). Same tokens as the landing page.
+   Flat, square, one green. Depth comes from paper / mist / ink
+   bands alternating, never from shadows or gradients.
+   ============================================================== */
+:root{
+  --surface:#FFFFFF; --paper:#F7F6F2; --mist:#EFEDE8; --line:#E2E0DA;
+  --silver:#C9C7C1; --ash:#9B9A96;  --graphite:#6E7276;
+  --slate:#3E4246;  --ink:#15171A;
+  --green:#1D865A;  --green-700:#166444; --green-300:#53C696;
+  --amber:#9A6B12;  --red:#9F1239;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',system-ui,-apple-system,sans-serif;
+  color:var(--ink);background:var(--paper);
+  font-size:1.0625rem;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+/* green text is a link and nothing else (§3.4) */
+a{color:var(--green-700);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--ink)}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+/* Keep prose to a comfortable measure; tables may use the full width */
+main p,main li{max-width:68ch}
+
+/* The wordmark, built at runtime from Archivo's own c.
+   a.wm:hover is needed because the generic a:hover above turns links
+   Ink — which on an Ink header renders the mark invisible. The c is an
+   SVG whose stroke is baked at build time, so without this the five
+   letters disappear and the ring is left floating on its own. */
+.wm,a.wm:hover{color:var(--paper);text-decoration:none}
+.wm{
+  line-height:1;white-space:nowrap;display:inline-block;font-weight:500;
+  letter-spacing:0;font-kerning:none;font-variant-ligatures:none;
+  font-feature-settings:"kern" 0,"liga" 0;
+  color:var(--paper);font-size:27px;text-decoration:none;
+}
+.wm svg{display:inline-block}
+
+header{background:var(--ink);padding:16px 0;position:sticky;top:0;z-index:50}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1430px}
+/* secondary button, reversed: paper outline on an ink ground (§4.2) */
+header a.back{
+  display:inline-flex;align-items:center;gap:11px;
+  color:var(--paper);text-decoration:none;font-size:1rem;font-weight:500;
+  padding:12px 24px;border:1px solid rgba(247,246,242,.42);border-radius:4px;
+  transition:background .2s,border-color .2s,color .2s;white-space:nowrap;
+}
+header a.back:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+header a.back svg{flex:0 0 auto}
+
+.hero{background:var(--ink);color:var(--paper);padding:64px 0 56px}
+.hero h1{font-size:clamp(2rem,4vw,2.9rem);font-weight:600;letter-spacing:-.03em;margin-bottom:12px}
+.hero p{font-weight:400;color:var(--silver);font-size:1.1rem;max-width:60ch;line-height:1.7}
+.hero .dates{
+  margin-top:24px;font-size:.95rem;font-weight:400;color:var(--ash);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+/* the placeholder marker is tuned for paper, so it is restated on ink */
+.hero .ph{background:rgba(159,18,57,.30);color:#FFFFFF;border:1px dashed rgba(255,255,255,.55)}
+
+.toc{background:var(--mist);border:1px solid var(--line);border-radius:0;padding:28px 30px;margin:48px 0 8px}
+.toc h2{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:16px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:34px}
+.toc li{margin-bottom:8px;font-size:.95rem;break-inside:avoid;color:var(--slate)}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+main{padding:16px 0 90px}
+main section{padding:38px 0;border-bottom:1px solid var(--line);scroll-margin-top:92px}
+main section:last-of-type{border-bottom:none}
+h2{font-size:1.5rem;color:var(--ink);font-weight:600;margin-bottom:14px;letter-spacing:-.025em}
+h3{font-size:1.08rem;color:var(--ink);font-weight:600;margin:24px 0 8px;letter-spacing:-.015em}
+p,li{color:var(--slate);font-weight:400}
+p{margin-bottom:16px}
+ul{margin:0 0 20px 24px}
+li{margin-bottom:11px}
+/* emphasis is Medium 500, never colour (§3.4) */
+strong{color:var(--ink);font-weight:500}
+/* unfilled detail. Error red on purpose: this is the one thing on the
+   page that must not survive to launch. */
+.ph{background:rgba(159,18,57,.12);color:var(--red);font-weight:500;padding:2px 7px;border-radius:0;outline:1px dashed rgba(159,18,57,.45)}
+code{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.92em;background:var(--mist);padding:2px 7px;border-radius:0;color:var(--ink)}
+
+table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:1rem}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+/* column headings are labels: uppercase at 12px, .2em (§3.4) */
+th{color:var(--ink);font-weight:600;background:var(--mist);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+td{color:var(--slate);font-weight:400;font-variant-numeric:tabular-nums}
+
+/* A panel that emphasises policy text for the reader. */
+.callout{
+  background:var(--mist);border:1px solid var(--line);border-radius:0;
+  padding:22px 24px;margin:20px 0;
+}
+.callout p:last-child{margin-bottom:0}
+/* .note is the subset addressed to whoever is finishing the document,
+   not to the reader. Amber is the system attention colour, which is
+   what these are. Every one of them should be gone before launch. */
+.callout.note::before{
+  content:"Before launch";display:block;
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:600;color:var(--amber);margin-bottom:10px;
+}
+/* the statutory reference each section answers to — quiet metadata */
+.statute{
+  display:block;font-size:.88rem;color:var(--graphite);font-weight:400;
+  margin:-6px 0 18px;padding:9px 14px;background:var(--mist);border-radius:0;
+}
+
+footer{background:var(--ink);color:var(--silver);padding:48px 0;font-weight:400;font-size:.95rem;text-align:center}
+footer a{color:var(--green-300);text-decoration:none}
+footer a:hover{color:var(--paper);text-decoration:underline}
+/* primary button — one per section, which this is (§4.2) */
+.foot-back{
+  display:inline-flex;align-items:center;gap:11px;margin-bottom:22px;
+  background:var(--green);color:#fff!important;font-weight:500;font-size:1rem;
+  padding:14px 30px;border:1px solid var(--green);border-radius:4px;
+  text-decoration:none!important;transition:background .2s,border-color .2s;
+}
+.foot-back:hover{background:var(--green-700);border-color:var(--green-700);color:#fff!important}
+
+/* focus is a green ring, per §2.3 — paler on ink grounds */
+a:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:0}
+header a:focus-visible,footer a:focus-visible,.hero a:focus-visible{outline-color:var(--green-300)}
+
+/* same step the landing page takes, at the same breakpoint */
+@media(max-width:430px){.wm{font-size:22px}}
+
+@media(max-width:640px){
+  body{font-size:1.02rem}
+  header a.back{font-size:.92rem;padding:10px 16px;gap:8px}
+  .hero{padding:48px 0 42px}
+  main section{padding:28px 0}
+  .toc ol{columns:1}
+  table,thead,tbody,th,td,tr{display:block}
+  thead{display:none}
+  td{border:none;padding:5px 0}
+  td::before{
+    content:attr(data-label);display:block;color:var(--graphite);
+    font-weight:600;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  }
+  tr{border-bottom:1px solid var(--line);padding:12px 0;display:block}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html" class="wm" data-wm aria-label="Lacuna, home">Lacuna</a>
+    <a href="index.html" class="back">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Back to Lacuna
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p>What we collect when you use this website, why we collect it, who we share it with, and the rights you hold over it.</p>
+    <p class="dates">Effective 19 October 2026 · Last updated 19 October 2026</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#s1">Who we are</a></li>
+      <li><a href="#s2">Scope</a></li>
+      <li><a href="#s3">Personal data we process, and its sources</a></li>
+      <li><a href="#s4">Why we process it</a></li>
+      <li><a href="#s5">Sensitive data</a></li>
+      <li><a href="#s6">Who we share it with</a></li>
+      <li><a href="#s7">Sale, targeted advertising and profiling</a></li>
+      <li><a href="#s8">Opt-out preference signals</a></li>
+      <li><a href="#s9">Cookies and similar technologies</a></li>
+      <li><a href="#s10">Your rights and how to use them</a></li>
+      <li><a href="#s11">Appeals</a></li>
+      <li><a href="#s12">If you are in the UK or EU</a></li>
+      <li><a href="#s13">Marketing email</a></li>
+      <li><a href="#s14">How long we keep data</a></li>
+      <li><a href="#s15">Security</a></li>
+      <li><a href="#s16">Children</a></li>
+      <li><a href="#s17">Changes</a></li>
+      <li><a href="#s18">Contact</a></li>
+    </ol>
+  </nav>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <section id="s1">
+      <h2>1. Who we are</h2>
+      <p>The controller responsible for the personal data described in this policy — the party that decides why and how it is processed — is:</p>
+      <ul>
+        <li>Lacuna Management Services Limited, trading as Lacuna</li>
+        <li>Elizabeth Suite, 3rd Floor, 207 Regent Street, London, W1B 3HH, United Kingdom</li>
+        <li>Registered in England and Wales, company number 17507110</li>
+        <li>Registered with the UK Information Commissioner's Office, registration number ZC277648</li>
+        <li>Email: <a href="mailto:hello@wearelacuna.com">hello@wearelacuna.com</a></li>
+      </ul>
+      <p>In this policy, "Lacuna", "we" and "us" mean Lacuna Management Services Limited. "You" means anyone whose personal data we process through this website.</p>
+    </section>
+
+    <section id="s2">
+      <h2>2. Scope</h2>
+      <p>This policy covers personal data we process through this website, including the consultation booking tool and the enquiry form.</p>
+      <p>It does <strong>not</strong> cover personal data we process on behalf of clients under a managed service agreement. In that context we generally act as a processor rather than a controller, and our handling is governed by the service agreement and its data processing terms rather than by this policy.</p>
+      <p>Where this website links to third-party sites, those sites have their own policies and we are not responsible for them.</p>
+    </section>
+
+    <section id="s3">
+      <h2>3. Personal data we process, and its sources</h2>
+      <span class="statute">Tex. Bus. &amp; Com. Code § 541.102(a)(1) — categories of personal data processed · § 541.101(b)(3) — de-identified data</span>
+
+      <h3>Data you give us</h3>
+      <table>
+        <thead><tr><th>Category</th><th>Specific data</th><th>Where it comes from</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Category">Identifiers</td>
+            <td data-label="Specific data">Name, business email address</td>
+            <td data-label="Source">Enquiry form, booking tool</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Professional information</td>
+            <td data-label="Specific data">Company name, and any role or organisation detail you choose to give</td>
+            <td data-label="Source">Enquiry form, booking tool</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Content you write</td>
+            <td data-label="Specific data">Whatever you put in the message field, and subsequent correspondence</td>
+            <td data-label="Source">Enquiry form, email</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Scheduling information</td>
+            <td data-label="Specific data">Chosen appointment time and time zone</td>
+            <td data-label="Source">Booking tool</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Data collected automatically</h3>
+      <p>Where analytics runs (see <a href="#s8">section 8</a> — it does not run for every visitor), we process:</p>
+      <table>
+        <thead><tr><th>Category</th><th>Specific data</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Category">Device and connection</td>
+            <td data-label="Specific data">Browser and device type, operating system, screen size, and a truncated IP address used to derive approximate city-level location. We do not store full IP addresses for analytics.</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Usage</td>
+            <td data-label="Specific data">Pages viewed, time on page, scroll depth, buttons clicked, and the page or search that referred you</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Where the data comes from</h3>
+      <ul>
+        <li><strong>Directly from you</strong> — when you complete the enquiry form, book a consultation, or email us.</li>
+        <li><strong>Automatically from your device</strong> — through the analytics cookies described in <a href="#s9">section 9</a>, where analytics runs.</li>
+        <li><strong>From your employer or colleague</strong> — where someone else at your organisation introduces you or includes you in correspondence.</li>
+      </ul>
+      <p><strong>We do not buy personal data from data brokers</strong> or business contact-data vendors, we do not acquire it from advertising platforms, and we do not combine website data with outside sources to build profiles on you. If you receive an email from us, it is because you or a colleague contacted us — not because we bought your details.</p>
+
+      <h3>De-identified and aggregated data</h3>
+      <p>We may de-identify or aggregate personal data so it can no longer reasonably be linked to you, and use it to understand how the website performs. Where we do, we publicly commit to maintaining and using that data only in de-identified form, we will not attempt to re-identify it, and we contractually require anyone who receives it to do the same.</p>
+    </section>
+
+    <section id="s4">
+      <h2>4. Why we process it</h2>
+      <span class="statute">§ 541.102(a)(1) — purpose of processing · UK GDPR Art. 13(1)(c) — legal basis</span>
+      <p>We limit what we collect to what is adequate, relevant and reasonably necessary for the purposes below, and we will not process your data for a materially different purpose without asking you first.</p>
+      <table>
+        <thead><tr><th>Purpose</th><th>Data used</th><th>Legal basis (UK/EU)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Purpose">Responding to your enquiry and arranging a consultation</td>
+            <td data-label="Data used">Identifiers, professional information, content, scheduling</td>
+            <td data-label="Basis">Steps taken at your request prior to entering a contract</td>
+          </tr>
+          <tr>
+            <td data-label="Purpose">Preparing for and conducting that consultation, and following up</td>
+            <td data-label="Data used">Identifiers, professional information, content</td>
+            <td data-label="Basis">Legitimate interests — responding to prospective clients</td>
+          </tr>
+          <tr>
+            <td data-label="Purpose">Understanding how the website performs and improving it</td>
+            <td data-label="Data used">Device, connection and usage data, in aggregate</td>
+            <td data-label="Basis">Legitimate interests — operating and improving our website</td>
+          </tr>
+          <tr>
+            <td data-label="Purpose">Keeping records, resolving disputes, and meeting legal obligations</td>
+            <td data-label="Data used">As necessary</td>
+            <td data-label="Basis">Legal obligation; legitimate interests in establishing or defending legal claims</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="s5">
+      <h2>5. Sensitive data</h2>
+      <span class="statute">§ 541.101(b)(4) — consent required before processing sensitive data</span>
+      <p>We do not ask for, and do not knowingly collect, sensitive data through this website. Under Texas law that means data revealing racial or ethnic origin, religious belief, mental or physical health condition or diagnosis, sexuality, citizenship or immigration status; genetic or biometric data used to identify someone; precise geolocation; or the personal data of a child under 13.</p>
+      <p>The message field is free text, so please do not include sensitive information in it. If you send us sensitive data unprompted, we will delete it unless we need it to answer you, in which case we will ask for your consent first.</p>
+      <p><strong>We do not sell sensitive personal data or biometric data.</strong></p>
+    </section>
+
+    <section id="s6">
+      <h2>6. Who we share it with</h2>
+      <span class="statute">§ 541.102(a)(2)–(3) — categories of data shared and categories of recipients</span>
+      <p>We share personal data with a small number of service providers who process it on our instructions and under written contracts requiring them to protect it, use it only for the purposes we specify, and impose equivalent obligations on their own sub-processors.</p>
+      <table>
+        <thead><tr><th>Category of recipient</th><th>Provider</th><th>Data shared</th><th>Location</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Category">Scheduling software</td>
+            <td data-label="Provider">Cal.com, Inc.</td>
+            <td data-label="Data">Name, email, appointment time and time zone</td>
+            <td data-label="Location">United States</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Website analytics</td>
+            <td data-label="Provider">Google Analytics 4 (Google LLC)</td>
+            <td data-label="Data">Device, connection and usage data</td>
+            <td data-label="Location">United States</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Form processing</td>
+            <td data-label="Provider">Web3Forms</td>
+            <td data-label="Data">Everything submitted through the enquiry form</td>
+            <td data-label="Location">United Kingdom</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Email</td>
+            <td data-label="Provider">Microsoft 365 (Microsoft Ireland Operations Limited)</td>
+            <td data-label="Data">Correspondence and enquiry records</td>
+            <td data-label="Location">United Kingdom</td>
+          </tr>
+          <tr>
+            <td data-label="Category">Hosting</td>
+            <td data-label="Provider">GitHub Pages (GitHub, Inc., a Microsoft company)</td>
+            <td data-label="Data">Server logs, including IP address</td>
+            <td data-label="Location">United States, served from a global content delivery network</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>We may also disclose personal data to professional advisers, to a buyer or successor if the business is sold or merged, or where we are required to by law, court order or a regulator — or where disclosure is necessary to establish or defend legal claims.</p>
+      <p><strong>We do not disclose personal data to third parties for their own independent purposes.</strong></p>
+    </section>
+
+    <section id="s7">
+      <h2>7. Sale, targeted advertising and profiling</h2>
+      <span class="statute">§ 541.102(b) — required disclosure where a controller sells data or processes it for targeted advertising</span>
+      <div class="callout">
+        <p><strong>We do not sell personal data.</strong> We do not exchange it for money or other valuable consideration.</p>
+        <p><strong>We do not process personal data for targeted advertising</strong>, and we do not share it for cross-context behavioural advertising.</p>
+        <p><strong>We do not use profiling</strong> to make automated decisions that produce legal or similarly significant effects — including decisions about financial or lending services, housing, insurance, health care, education, employment, criminal justice, or access to basic necessities.</p>
+      </div>
+      <p>If this ever changes, we will update this policy before starting, disclose it clearly and conspicuously, and provide a working opt-out mechanism.</p>
+      <h3>Artificial intelligence</h3>
+      <p><strong>We do not use artificial intelligence systems to process personal data collected through this website</strong>, and no automated system makes decisions about you. That applies across sales, marketing and service delivery, not only to the website itself.</p>
+      <p>We will update this policy before that changes, and where the Texas Responsible AI Governance Act — in force since 1 January 2026 — or UK GDPR requires it, we will tell you what the system does and what it means for you before we start.</p>
+    </section>
+
+    <section id="s8">
+      <h2>8. Opt-out preference signals</h2>
+      <p>We honour the <strong>Global Privacy Control</strong> (GPC) and the older Do Not Track setting. If your browser or an extension sends either signal, our analytics does not load at all for your visit: no tracking script runs, no cookie is set, and no usage data is collected.</p>
+      <p>We treat a GPC signal as a valid opt-out of sale and of processing for targeted advertising, as required in Texas since 1 January 2025 and in a growing number of other states. You do not need to submit anything to us for it to take effect, and we do not require an account to honour it.</p>
+      <p>GPC is available in browsers including Firefox and Brave, and through extensions in others. Because the signal is set per browser and device, you will need to enable it on each.</p>
+    </section>
+
+    <section id="s9">
+      <h2>9. Cookies and similar technologies</h2>
+      <p>Cookies are small text files a website stores on your device. We also use similar technologies such as pixels and local storage. This section lists every cookie this website is capable of setting.</p>
+
+      <div class="callout">
+        <p><strong>This site sets no cookies at all until analytics loads</strong> — and analytics does not load if your browser sends a Global Privacy Control signal (see <a href="#s8">section 8</a>). If you browse with GPC enabled, nothing in the analytics table below is ever placed on your device.</p>
+      </div>
+
+      <h3>Cookies we set</h3>
+      <table>
+        <thead><tr><th>Name</th><th>Set by</th><th>Purpose</th><th>Type</th><th>Expires</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Name"><code>_ga</code></td>
+            <td data-label="Set by">Google Analytics (first-party)</td>
+            <td data-label="Purpose">Distinguishes one visitor from another so we can count unique visits</td>
+            <td data-label="Type">Analytics</td>
+            <td data-label="Expires">2 years</td>
+          </tr>
+          <tr>
+            <td data-label="Name"><code>_ga_&lt;ID&gt;</code></td>
+            <td data-label="Set by">Google Analytics (first-party)</td>
+            <td data-label="Purpose">Maintains session state so a visit isn't counted twice</td>
+            <td data-label="Type">Analytics</td>
+            <td data-label="Expires">2 years</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>That is the complete list. <strong>We set no advertising, retargeting or social media cookies</strong>, and we do not use pixels from advertising networks or data brokers.</p>
+
+      <h3>Cookies third parties may set</h3>
+      <p>The consultation booking calendar is provided by Cal.com and loads inside a frame on our booking page. Cal.com may set its own cookies within that frame, governed by <a href="https://cal.com/privacy" target="_blank" rel="noopener">Cal.com's privacy policy</a> rather than this one. Those cookies are set only if you scroll to the booking section and the calendar loads.</p>
+      <p>Our web fonts are served by Google Fonts, which does not set cookies.</p>
+
+      <h3>How to control cookies</h3>
+      <ul>
+        <li><strong>Enable Global Privacy Control</strong> in your browser. This is the most complete option — it stops our analytics loading before any cookie is created, rather than deleting one afterwards.</li>
+        <li><strong>Block or delete cookies in your browser settings.</strong> Every major browser allows this, under Privacy or Security settings. Blocking analytics cookies will not break anything on this site.</li>
+        <li><strong>Opt out of Google Analytics specifically</strong> using <a href="https://tools.google.com/dlpage/gaoptout/" target="_blank" rel="noopener">Google's opt-out browser add-on</a>.</li>
+      </ul>
+      <p>Cookie settings are specific to each browser and device, so a choice made on your laptop will not carry across to your phone.</p>
+
+    </section>
+
+    <section id="s10">
+      <h2>10. Your rights and how to use them</h2>
+      <span class="statute">§ 541.051 — consumer rights · § 541.052 — how controllers must respond</span>
+      <p>We extend the rights below to every person who contacts us, wherever they live. It is simpler than applying different standards by state, and fairer.</p>
+      <ul>
+        <li><strong>Confirm and access</strong> — find out whether we are processing your personal data and obtain a copy of it.</li>
+        <li><strong>Correct</strong> — have inaccurate personal data corrected, taking into account its nature and why we hold it.</li>
+        <li><strong>Delete</strong> — have personal data you provided, or that we obtained about you, deleted.</li>
+        <li><strong>Portability</strong> — receive your data in a portable and, to the extent technically feasible, readily usable format.</li>
+        <li><strong>Opt out</strong> — of sale, targeted advertising and profiling with significant effects. We do none of these, but the right stands and we will honour a request as confirmation.</li>
+        <li><strong>Appeal</strong> — challenge a refusal (see <a href="#s11">section 11</a>).</li>
+        <li><strong>Non-discrimination</strong> — we will not deny you service, charge you differently, or give you a lower standard of service because you exercised a right.</li>
+      </ul>
+
+      <h3>How to make a request</h3>
+      <p>Email <a href="mailto:hello@wearelacuna.com">hello@wearelacuna.com</a> with the word "Privacy" in the subject line, or write to us at the postal address in <a href="#s1">section 1</a>. Both routes work equally.</p>
+      <p><strong>You do not need to create an account</strong> to make a request, and we will never require one.</p>
+
+      <h3>How we respond</h3>
+      <ul>
+        <li>We will <strong>acknowledge your request within 10 business days</strong>, so you know it reached us.</li>
+        <li>We will respond substantively <strong>within 45 days</strong> of receiving an authenticated request.</li>
+        <li>Where reasonably necessary we may take <strong>one further 45 days</strong>. If so, we will tell you within the first 45 days and explain why.</li>
+        <li>Responses are <strong>free</strong>, up to twice in any 12-month period. If a request is manifestly unfounded, excessive or repetitive, we may charge a reasonable administrative fee or decline it, and we will explain which and why.</li>
+      </ul>
+
+      <h3>Verifying who you are</h3>
+      <p>Before we act on a request to access, correct, delete or port data, we take reasonable steps to confirm you are who you say you are. Usually that means replying from the email address we already hold for you, or confirming details already in our records. We will never ask for more information than we need, and we use anything you provide for verification only, then delete it.</p>
+      <p>If we cannot authenticate a request, we will tell you and explain what would allow us to proceed. We will not act on an unverified request, because doing so would risk disclosing your data to someone else.</p>
+
+      <h3>Authorised agents</h3>
+      <p>Someone may make a request on your behalf. We will ask for written authorisation signed by you, and we may also ask you to confirm the arrangement with us directly before we act.</p>
+
+      <h3>California residents</h3>
+      <p>California Civil Code § 1798.83 ("Shine the Light") lets California residents ask about personal data disclosed to third parties for those third parties' own direct marketing purposes. <strong>We make no such disclosures.</strong> You are welcome to email us to confirm that in writing.</p>
+
+      <h3>Nevada residents</h3>
+      <p>Nevada law gives residents the right to opt out of the sale of covered personal information. <strong>We do not sell personal information</strong> as Nevada defines it. To submit an opt-out anyway, email us with "Nevada opt-out" in the subject line.</p>
+    </section>
+
+    <section id="s11">
+      <h2>11. Appeals</h2>
+      <span class="statute">§ 541.053 — appeal process and referral to the Attorney General</span>
+      <p>If we decline your request, we will tell you why and how to appeal.</p>
+      <p>To appeal, reply to our decision or email <a href="mailto:hello@wearelacuna.com">hello@wearelacuna.com</a> with "Privacy appeal" in the subject line, <strong>within 30 days</strong> of our decision. We will respond in writing <strong>within 60 days</strong>, explaining our reasoning.</p>
+      <p>If we deny the appeal, we will give you a method to contact the Texas Attorney General. You can also go directly to the <a href="https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights" target="_blank" rel="noopener">Texas Attorney General's consumer privacy complaint page</a>. Residents of other states may complain to their own Attorney General or supervisory authority.</p>
+    </section>
+
+    <section id="s12">
+      <h2>12. If you are in the UK or EU</h2>
+      <p>Lacuna is established in the United Kingdom, so UK GDPR applies to its processing regardless of where you are located. The following therefore applies to everyone, not only to visitors in the UK or EU.</p>
+      <p><strong>Additional rights:</strong> to object to processing based on legitimate interests; to restrict processing in certain circumstances; to withdraw consent at any time where processing relies on consent, without affecting prior processing; and to lodge a complaint with a supervisory authority — in the UK, the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">Information Commissioner's Office</a>.</p>
+      <p><strong>International transfers:</strong> your correspondence is held in the United Kingdom, but several of the providers in <a href="#s6">section 6</a> — our website host, our analytics provider and our scheduling provider — are established in the United States. Where personal data is transferred out of the UK, we rely on the <strong>UK International Data Transfer Addendum to the EU Standard Contractual Clauses</strong>, and, where the provider is certified under the UK Extension to the EU–US Data Privacy Framework, on that certification. You can ask us for a copy of the safeguards in place for any named provider.</p>
+      <p><strong>Response times under UK GDPR are one month</strong>, extendable by two further months for complex requests — shorter than the Texas timeline, so we apply whichever is sooner.</p>
+    </section>
+
+    <section id="s13">
+      <h2>13. Marketing email</h2>
+      <p>If we send you commercial email, every message will identify who it is from, include our valid physical postal address, and carry a working unsubscribe link. We action unsubscribes within <strong>10 business days</strong>, as CAN-SPAM requires, and usually far sooner.</p>
+      <p>Unsubscribing from marketing does not stop us replying to an enquiry you have made, or sending you administrative messages such as a booking confirmation.</p>
+    </section>
+
+    <section id="s14">
+      <h2>14. How long we keep data</h2>
+      <p>We keep personal data only as long as we need it for the purposes in section 4, or as long as the law requires.</p>
+      <table>
+        <thead><tr><th>Data</th><th>Retention</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Data">Enquiries that do not become client relationships</td>
+            <td data-label="Retention">24 months from last contact, then deleted</td>
+          </tr>
+          <tr>
+            <td data-label="Data">Enquiries that become client relationships</td>
+            <td data-label="Retention">For the life of the relationship, then per the service agreement and applicable limitation periods</td>
+          </tr>
+          <tr>
+            <td data-label="Data">Booking records</td>
+            <td data-label="Retention">24 months</td>
+          </tr>
+          <tr>
+            <td data-label="Data">Analytics data</td>
+            <td data-label="Retention">14 months, per the retention setting in Google Analytics</td>
+          </tr>
+          <tr>
+            <td data-label="Data">Records of privacy requests</td>
+            <td data-label="Retention">Kept as evidence of compliance for 24 months</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>You can ask us to delete your data sooner at any time under section 10.</p>
+    </section>
+
+    <section id="s15">
+      <h2>15. Security</h2>
+      <span class="statute">§ 541.101(b)(2) — reasonable administrative, technical and physical data security practices</span>
+      <p>We maintain administrative, technical and physical safeguards appropriate to the volume and sensitivity of the data we hold. These include encryption of data in transit, access controls limiting who can view enquiry records, multi-factor authentication on the systems that store them, logging and review of access, and due diligence on the providers listed in section 6.</p>
+      <p>No transmission over the internet is completely secure and we cannot guarantee absolute security. Please do not send passwords, payment details, or other confidential information through the website forms.</p>
+      <p>If a breach affects your personal data, we will notify you and the relevant regulators where the law requires it, within the applicable deadlines.</p>
+    </section>
+
+    <section id="s16">
+      <h2>16. Children</h2>
+      <p>This is a business-to-business website, not directed at children, and we do not knowingly collect personal data from anyone under 18. Under Texas law the personal data of a child under 13 is sensitive data and requires verifiable parental consent, which we do not seek because we do not process it.</p>
+      <p>If you believe a child has given us personal data, email us and we will delete it promptly.</p>
+    </section>
+
+    <section id="s17">
+      <h2>17. Changes to this policy</h2>
+      <p>We may update this policy as our services, our providers or the law change. The "last updated" date at the top always reflects the current version.</p>
+      <p>If we make a material change — particularly one that would broaden how we use data you have already given us — we will say so prominently on this page, and where the law requires it we will seek your consent before applying the change to existing data.</p>
+    </section>
+
+    <section id="s18">
+      <h2>18. Contact</h2>
+      <p>For anything to do with this policy, your personal data, or a request under section 10:</p>
+      <ul>
+        <li>Email: <a href="mailto:hello@wearelacuna.com">hello@wearelacuna.com</a></li>
+        <li>Post: Lacuna Management Services Limited, Elizabeth Suite, 3rd Floor, 207 Regent Street, London, W1B 3HH, United Kingdom</li>
+      </ul>
+      <p><strong>We have not appointed a data protection officer.</strong> UK GDPR requires one only where an organisation is a public authority, monitors people on a large scale as a core activity, or processes special category data on a large scale — none of which apply to us. Privacy enquiries are handled directly by the people running the business, using the contact details above.</p>
+      <p>We aim to answer any privacy question within five business days, separately from the formal response deadlines in section 10.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="foot-back">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Back to Lacuna
+    </a>
+    <p>&copy; 2026 Lacuna · <a href="mailto:hello@wearelacuna.com">hello@wearelacuna.com</a></p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     WORDMARK
+     The same routine the landing page uses, so the two headers are
+     identical rather than merely similar. The c is a circle sized to
+     Archivo's own c — ink height including overshoot — with a stroke
+     set to the mean of that letter's thin and thick, measured by
+     pixel at runtime. Letter gaps are solved optically.
+     If JavaScript fails you get "Lacuna" in Archivo Medium, which is
+     an acceptable fallback rather than a broken logo.
+     ============================================================ -->
+<script>
+(function(){
+"use strict";
+var GREEN='#1D865A', LETTERS=['L','a','c','u','n','a'];
+var SW=0.50, CK=0.74, AP=70, GAPS=[0,0,0,0,0], ST=null;
+
+function strokeOf(){
+  if(ST) return ST;
+  try{
+    var S=240, cv=document.createElement('canvas');
+    cv.width=Math.round(S*1.4); cv.height=Math.round(S*1.6);
+    var x=cv.getContext('2d',{willReadFrequently:true});
+    x.font='normal 500 '+S+'px Archivo, sans-serif';
+    x.textBaseline='alphabetic'; x.fillStyle='#000';
+    x.fillText('c', Math.round(S*0.2), Math.round(S*1.2));
+    var W=cv.width,H=cv.height,d=x.getImageData(0,0,W,H).data;
+    var A=function(px,py){return d[(py*W+px)*4+3]};
+    var minX=W,maxX=-1,minY=H,maxY=-1,px,py;
+    for(py=0;py<H;py++)for(px=0;px<W;px++)
+      if(A(px,py)>128){if(px<minX)minX=px;if(px>maxX)maxX=px;if(py<minY)minY=py;if(py>maxY)maxY=py}
+    if(maxX<0) return null;
+    var cyM=Math.round((minY+maxY)/2),run=0,thick=0;
+    for(px=minX;px<=maxX;px++){if(A(px,cyM)>128)run++;else if(run){thick=run;break}}
+    if(run&&!thick)thick=run;
+    var cxM=Math.round((minX+maxX)/2);run=0;var thin=0;
+    for(py=minY;py<=maxY;py++){if(A(cxM,py)>128)run++;else if(run){thin=run;break}}
+    if(run&&!thin)thin=run;
+    ST={thick:thick/S,thin:thin/S};
+  }catch(e){ ST=null }
+  return ST;
+}
+function build(el){
+  var cs=getComputedStyle(el), fs=parseFloat(cs.fontSize), st=strokeOf();
+  if(!st) return;
+  var sw=fs*(st.thin+(st.thick-st.thin)*SW);
+  var ctx=document.createElement('canvas').getContext('2d');
+  ctx.font='normal 500 '+fs+'px Archivo, sans-serif';
+  var mc=ctx.measureText('c');
+  var asc=mc.actualBoundingBoxAscent, desc=mc.actualBoundingBoxDescent, inkH=asc+desc;
+  if(!inkH) return;
+  var r=inkH/2, rad=r-sw/2, coreR=CK*(rad-sw/2), g=AP*Math.PI/360;
+  var n=function(v){return Math.round(v*1000)/1000};
+  var svg='<svg width="'+n(2*r)+'" height="'+n(inkH)+'" viewBox="0 0 '+n(2*r)+' '+n(inkH)+
+    '" style="vertical-align:'+n(-desc)+'px" aria-hidden="true"><path d="M'+n(r+rad*Math.cos(g))+
+    ' '+n(r+rad*Math.sin(g))+' A'+n(rad)+' '+n(rad)+' 0 1 1 '+n(r+rad*Math.cos(-g))+' '+
+    n(r+rad*Math.sin(-g))+'" fill="none" stroke="'+cs.color+'" stroke-width="'+n(sw)+
+    '"/><circle cx="'+n(r)+'" cy="'+n(r)+'" r="'+n(coreR)+'" fill="'+GREEN+'"/></svg>';
+  el.innerHTML=LETTERS.map(function(ch,i){
+    return '<span style="margin-right:'+n(i<5?GAPS[i]/1000*fs:0)+'px">'+(ch==='c'?svg:ch)+'</span>';
+  }).join('');
+  el._fs=fs; el._ctx=ctx; el._r=r;
+}
+function measure(el){
+  if(!el._ctx) return null;
+  var spans=el.querySelectorAll('span'), ctx=el._ctx, fs=el._fs, edges=[], out=[];
+  Array.prototype.forEach.call(spans,function(s,i){
+    var rect=s.getBoundingClientRect(), ch=LETTERS[i];
+    if(ch==='c') edges.push([rect.left, rect.left+2*el._r]);
+    else { var m=ctx.measureText(ch);
+      edges.push([rect.left-m.actualBoundingBoxLeft, rect.left+m.actualBoundingBoxRight]) }
+  });
+  for(var i=0;i<edges.length-1;i++) out.push((edges[i+1][0]-edges[i][1])/fs*1000);
+  return out;
+}
+function solveGaps(){
+  var p=document.createElement('span');
+  p.className='wm';
+  p.style.cssText='font-size:200px;position:absolute;left:-9999px;top:0;color:#000';
+  document.body.appendChild(p); build(p);
+  for(var i=0;i<3;i++){
+    var m=measure(p); if(!m) break;
+    var t=m.reduce(function(a,b){return a+b},0)/m.length;
+    for(var j=0;j<5;j++) GAPS[j]+=(t-m[j]);
+    build(p);
+  }
+  var bias=[-6,-14,-12,6,-8];
+  for(var k=0;k<5;k++) GAPS[k]=Math.round(GAPS[k]+bias[k]);
+  document.body.removeChild(p);
+}
+function boot(){
+  try{ solveGaps() }catch(e){}
+  document.querySelectorAll('[data-wm]').forEach(build);
+}
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(boot,40) });
+else window.addEventListener('load', boot);
+})();
+</script>
+
+</body>
+</html>
